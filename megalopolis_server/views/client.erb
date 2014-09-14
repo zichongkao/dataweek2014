@@ -1,0 +1,10 @@
+<script> 
+  var num_prefs = 2; // yes/no for now
+  pubnub.publish({
+    channel: 'iot_hackathon',
+    message: { pref: Math.floor(Math.random()*num_prefs),
+               device_id: '<%=@uuid%>',
+               ts_milli: Date.now()
+             }
+  })
+</script>
