@@ -2,7 +2,9 @@
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header"> <a class="navbar-brand" href="#">megalopolis</a>
-
+                <button style = "display: block; float: right" type="button" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-envelope"></span> Send Email Alert
+                </button>
             </div>
         </div>
     </nav>
@@ -10,22 +12,33 @@
         <div id="map-canvas">map</div>
         <div id="rightbar">
             <div style='position: relative; width: 100%; height: 0px; padding-bottom: 56%;'>
-                <iframe src="//www.youtube.com/embed/fFDh-I6XIXA?autoplay=1&showinfo=0&controls=0&loop=1&playlist=fFDh-I6XIXA" frameborder="0" id="video1" style='position: absolute; left: 0px; top: 0px; width: 100%; height: 100%'></iframe>
+                <iframe src="//www.youtube.com/embed/Mfcu0MXOX5U?autoplay=1&showinfo=0&controls=0&loop=1&playlist=Mfcu0MXOX5U" frameborder="0" id="video1" style='position: absolute; left: 0px; top: 0px; width: 100%; height: 100%'></iframe>
             </div>
             <div style='position: relative; width: 100%; height: 0px; padding-bottom: 56%;'>
-                <iframe src="//www.youtube.com/embed/9QzbQlY85fs?autoplay=1&showinfo=0&controls=0&loop=1&playlist=9QzbQlY85fs" frameborder="0" id="video2" style='position: absolute; left: 0px; top: 0px; width: 100%; height: 100%'></iframe>
+                <iframe src="//www.youtube.com/embed/xzG9KQBtmn0?autoplay=1&showinfo=0&controls=0&loop=1&playlist=xzG9KQBtmn0" frameborder="0" id="video2" style='position: absolute; left: 0px; top: 0px; width: 100%; height: 100%'></iframe>
             </div>
             <div style='position: relative; width: 100%; height: 0px;'>
-                <div id="area" class="epoch" style="width: 100%; height: 200px"></div>
+                <div id="lineChart" class="epoch" style="width: 100%; height: 200px"></div>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     var map;
+
     var nycCenter = new google.maps.LatLng(40.758895, -73.985131);
-    var timesSquare = new google.maps.LatLng(40.7703691, -73.9425825);
-    var videoId = ["fFDh-I6XIXA", "9QzbQlY85fs", "XS6ysDFTbLU"];
+    var timesSquare = new google.maps.LatLng(40.755753, -73.987222);
+    var littleItaly = new google.maps.LatLng(40.719571, -73.997355);
+    var chargingBull = new google.maps.LatLng(40.705798, -74.013358);
+    var uppEastSide = new google.maps.LatLng(40.772349, -73.951211);
+    var brooklyn = new google.maps.LatLng(40.692638, -73.986540);
+    var jersey = new google.maps.LatLng(40.742204, -74.031230);
+    var queens = new google.maps.LatLng(40.744203, -73.882178);
+    var bronx = new google.maps.LatLng(40.823490, -73.928184);
+    var east = new google.maps.LatLng(40.814916, -74.088172);
+
+    var videoId = ["Mfcu0MXOX5U", "xzG9KQBtmn0", "UCgqFe3ruZg", "MEi2iH5dB8s", "jyjVUvXIhDU", "xzG9KQBtmn0"];
 
     function initialize() {
         var mapOptions = {
@@ -42,23 +55,98 @@
         var marker1 = new google.maps.Marker({
             position: timesSquare,
             map: map,
-            title: "timessquare"
+            title: "timesSquare"
+        });
+        var marker2 = new google.maps.Marker({
+            position: littleItaly,
+            map: map,
+            title: "littleItaly"
+        });
+        var marker3 = new google.maps.Marker({
+            position: chargingBull,
+            map: map,
+            title: "chargingBull"
+        });
+        var marker4 = new google.maps.Marker({
+            position: uppEastSide,
+            map: map,
+            title: "uppEastSide"
+        });
+        var marker5 = new google.maps.Marker({
+            position: brooklyn,
+            map: map,
+            title: "brooklyn"
+        });
+        var marker6 = new google.maps.Marker({
+            position: jersey,
+            map: map,
+            title: "jersey"
+        });
+        var marker7 = new google.maps.Marker({
+            position: queens,
+            map: map,
+            title: "queens"
+        });
+        var marker8 = new google.maps.Marker({
+            position: bronx,
+            map: map,
+            title: "bronx"
+        });
+        var marker9 = new google.maps.Marker({
+            position: east,
+            map: map,
+            title: "east"
         });
 
-        var markers = [marker0, marker1];
-        var d = new Date();
+        var markers = [marker0, 
+                       marker1, 
+                       marker2, 
+                       marker3, 
+                       marker4, 
+                       marker5, 
+                       marker6,
+                       marker7,
+                       marker8,
+                       marker9];
 
         google.maps.event.addListener(markers[0], 'click', function() {
-            //map.setZoom(15);
             map.setCenter(markers[0].getPosition());
-            document.getElementById('video1').src = "//www.youtube.com/embed/" + videoId[1] + "?autoplay=1&showinfo=0&controls=0&loop=1&playlist=" + videoId[1];
-
+        });
+        google.maps.event.addListener(markers[4], 'click', function() {
+            map.setCenter(markers[0].getPosition());
+        });
+        google.maps.event.addListener(markers[5], 'click', function() {
+            map.setCenter(markers[0].getPosition());
+        });
+        google.maps.event.addListener(markers[6], 'click', function() {
+            map.setCenter(markers[0].getPosition());
+        });
+        google.maps.event.addListener(markers[7], 'click', function() {
+            map.setCenter(markers[0].getPosition());
+        });
+        google.maps.event.addListener(markers[8], 'click', function() {
+            map.setCenter(markers[0].getPosition());
+        });
+        google.maps.event.addListener(markers[9], 'click', function() {
+            map.setCenter(markers[0].getPosition());
         });
 
         google.maps.event.addListener(markers[1], 'click', function() {
-            //map.setZoom(15);
-            map.setCenter(markers[1].getPosition());
-            document.getElementById('video2').src = "//www.youtube.com/embed/" + videoId[2] + "?autoplay=1&showinfo=0&controls=0&loop=1&playlist=" + videoId[2];
+            map.setCenter(markers[0].getPosition());
+            document.getElementById('video1').src = "//www.youtube.com/embed/" + videoId[0] + "?autoplay=1&showinfo=0&controls=0&loop=1&playlist=" + videoId[0];
+            document.getElementById('video2').src = "//www.youtube.com/embed/" + videoId[1] + "?autoplay=1&showinfo=0&controls=0&loop=1&playlist=" + videoId[1];
+        });
+
+        google.maps.event.addListener(markers[2], 'click', function() {
+            map.setCenter(markers[0].getPosition());
+            document.getElementById('video1').src = "//www.youtube.com/embed/" + videoId[2] + "?autoplay=1&showinfo=0&controls=0&loop=1&playlist=" + videoId[2];
+            document.getElementById('video2').src = "//www.youtube.com/embed/" + videoId[3] + "?autoplay=1&showinfo=0&controls=0&loop=1&playlist=" + videoId[3];
+        });
+
+        google.maps.event.addListener(markers[3], 'click', function() {
+            map.setCenter(markers[0].getPosition());
+            document.getElementById('video1').src = "//www.youtube.com/embed/" + videoId[4] + "?autoplay=1&showinfo=0&controls=0&loop=1&playlist=" + videoId[4];
+            document.getElementById('video2').src = "//www.youtube.com/embed/" + videoId[5] + "?autoplay=1&showinfo=0&controls=0&loop=1&playlist=" + videoId[5];
         });
     }
 
@@ -67,11 +155,10 @@
     pubnub.subscribe({
         channel: 'countChannel',
         message: function(msg) {
-            var count = Math.random() * (100 - 0) + 0;
             var curr_t = Math.floor(Date.now() / 1000);
             var object = [{
                 time: curr_t,
-                y: count
+                y: Number(msg)
             }];
             EPOCH_OBJECTS.area.push(object);
         },
@@ -95,14 +182,13 @@
         y: 100
     }];
 
-    // initializing stuff
-
     var EPOCH_OBJECTS = {
-        area: $("#area").epoch({
-            type: "time.area",
+        area: $("#lineChart").epoch({
+            type: "time.bar",
             data: [{
                 values: chartData
-            }]
+            }],
+            axes: ['bottom', 'left']
         })
     };
 </script>

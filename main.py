@@ -78,7 +78,7 @@ def process_video(in_path,
         frame_counter += 1
         print frame_counter
         count, mask = process_mask(fgbg, frame)
-        #video.write(frame)
+        video.write(frame)
         count_storage.append(count)
 
         if show_vid:
