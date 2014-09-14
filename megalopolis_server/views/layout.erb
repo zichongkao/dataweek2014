@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="/js/d3.v3.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="/css/epoch.min.css"/>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="//bootswatch.com/united/bootstrap.min.css"/>
+    <script src="/js/epoch.min.js"></script>
+    <script src="//cdn.pubnub.com/pubnub.min.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+    <style>
+      html, body {
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+#page {
+    display:table;
+    border-spacing:0;
+    width:100%;
+    height:100%;
+}
+#main {
+    display:table-row;
+    position:relative;
+}
+#map-canvas {
+    display:table-cell;
+    width:62%;
+    bottom:0;
+    position:absolute;
+    top:50px;
+}
+#rightbar {
+    display:table-cell;
+    width:38%;
+    bottom:0;
+    position:absolute;
+    top:50px;
+}
+#rightbar {
+    background:white;
+    right:0;
+}
+#topvid {
+    position:absolute;
+    top:50px;
+}
+#map-canvas {
+    overflow:hidden;
+    left:0;
+}
+#topvid {
+    position: absolute;
+    top: 50px;
+}
+    </style>
+  </head>
+  <body>
+    <script>
+      var pubnub = PUBNUB.init({
+        publish_key:   'pub-c-f044f713-537b-46b2-b775-ba30f4a4c0a9',
+        subscribe_key: 'sub-c-df50be56-35f4-11e4-8736-02ee2ddab7fe'
+      });
+    </script>
+    <div class="container">
+      <%=yield%>
+    </div>
+  </body>
+</html>
