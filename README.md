@@ -19,3 +19,6 @@ Once this was done we utilized the Google Maps and Youtube API to visually displ
 Hopefully this project can be extended to utilize methods found in papers such as [this](http://mplab.ucsd.edu/wp-content/uploads/CVPR2008/Conference/data/papers/229.pdf).
 
 To run the project, follow the directions found [here](https://github.com/zichongkao/dataweek2014/tree/master/megalopolis_server)
+
+
+![alt tag](https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/10354685_10152315790087547_6969601251965219381_n.jpg?oh=f89d5f99f97bf29b7bd07fe1e74315b7&oe=54894BBD&__gda__=1422726850_43aac466c45fc2239ace0424368742a2)
