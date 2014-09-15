@@ -1,7 +1,7 @@
-iot-hackathon-server
+dataweek hackathon-server
 ====================
 
-The Server Component for the IoT hackathon
+The Server Component for the dataweek hackathon
 
 How to Run
 ==========
