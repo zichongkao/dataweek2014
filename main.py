@@ -33,7 +33,7 @@ def v1_ppl_counter(mask, min_size, max_size):
 
 def process_mask(fgbg, frame):
     fgmask = fgbg.apply(frame)
-    count, colored_mask = v1_ppl_counter(fgmask, 20, 200)
+    count, colored_mask = v1_ppl_counter(fgmask, 20, 7050)
     return count, colored_mask
 
 
@@ -60,10 +60,9 @@ def process_video(in_path,
     video = cv2.VideoWriter(out_path,
                             fourcc,
                             20.0,
-                            (width, height),
-                            1)  # in color
+                            (width, height))
     count, mask = process_mask(fgbg, frame)
-    #video.write(frame)
+    #video.write(mask)
     count_storage.append(count)
 
     if verbose:
@@ -71,19 +70,19 @@ def process_video(in_path,
 
     while(1):
         ret, frame = cap.read()
-        if not ret:
+        if frame is None:
             print "Video ended"
             break
 
         frame_counter += 1
-        print frame_counter
+        #print frame_counter
         count, mask = process_mask(fgbg, frame)
         video.write(frame)
         count_storage.append(count)
 
         if show_vid:
             cv2.imshow('frame', mask)
-            k = cv2.waitKey(30) & 0xff
+            k = cv2.waitKey(10) & 0xff
             if k == 27:  # esc to stop
                 print "Manual escape"
                 break
@@ -106,13 +105,13 @@ def process_counts(counts, clip_time):
 # data comes in a dict of {locname: 'video_path', longitude, latitude}
 # output {locname: time, count}
 data = {}
-data['tsrobo1'] = ('tsrobo1.mp4', 40.7577, 73.9857)
+data['tsrobo1'] = ('littleitaly.mp4', 40.7577, 73.9857)
      # http://www.earthcam.com/usa/newyork/timessquare/?cam=tsrobo1
 clip_time = 301  # seconds
 result_dict = {}
 
 for locname, details in data.items():
     path, _, _ = details
-    count_storage = process_video(path, 'test.mp4', show_vid=False)
+    count_storage = process_video(path, 'test.mp4', show_vid=True)
     result = process_counts(count_storage, clip_time)
     result_dict[locname] = result
