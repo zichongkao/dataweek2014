@@ -17,3 +17,5 @@ Our app was implemented in three stages:
 Once this was done we utilized the Google Maps and Youtube API to visually display our webcam feeds and present our counts. We also allowed for a "Send Email Alert" button that could be used by government or authorities to send out an email alert if the number of people shown by the webcam is too high. 
 
 Hopefully this project can be extended to utilize methods found in papers such as [this](http://mplab.ucsd.edu/wp-content/uploads/CVPR2008/Conference/data/papers/229.pdf).
+
+To run the project, follow the directions found [here](https://github.com/zichongkao/dataweek2014/tree/master/megalopolis_server)
